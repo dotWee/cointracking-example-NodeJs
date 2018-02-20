@@ -85,3 +85,17 @@ async function getHistoricalCurrency() {
     var res = await coinTracking('getHistoricalCurrency', params);
     console.log(JSON.stringify(res, null, 4));
 }
+
+async function getGroupedBalance() {
+    var params={};    
+
+    // optional parameter
+    /*
+    params.group="exchange";
+    params.exclude_dep_with=1;
+    params.type="Trade";
+    */
+
+    var res = await coinTracking('getGroupedBalance', params);
+    console.log(JSON.stringify(res, null, 4));
+}
