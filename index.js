@@ -46,7 +46,7 @@ async function getTrades() {
     */
 
     var res = await coinTracking('getTrades', params);
-    console.log(res);
+    console.log(JSON.stringify(res, null, 4));
 }
 
 getTrades();
