@@ -71,3 +71,17 @@ async function getHistoricalSummary() {
     var res = await coinTracking('getHistoricalSummary', params);
     console.log(JSON.stringify(res, null, 4));
 }
+
+async function getHistoricalCurrency() {
+    var params={};    
+
+    // optional parameter
+    /*
+    params.currency="ETH";
+    params.start=0;
+    params.end=1518029160;
+    */
+
+    var res = await coinTracking('getHistoricalCurrency', params);
+    console.log(JSON.stringify(res, null, 4));
+}
