@@ -99,3 +99,19 @@ async function getGroupedBalance() {
     var res = await coinTracking('getGroupedBalance', params);
     console.log(JSON.stringify(res, null, 4));
 }
+
+async function getGains() {
+    var params={};    
+
+    // optional parameter
+    /*
+    params.method="FIFO";
+    params.price="transaction";
+    params.exclude_dep_with=1;
+    params.costbasis="all";
+    params.btc=1;
+    */
+
+    var res = await coinTracking('getGains', params);
+    console.log(JSON.stringify(res, null, 4));
+}
