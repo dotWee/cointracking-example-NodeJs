@@ -2,7 +2,7 @@
 
 Example NodeJS project for the CoinTracking API
 
-Change the key and secret.
+Rename `config.example.json` to `config.json` and replace with own key and secret.
 
 ```bash
 npm install
