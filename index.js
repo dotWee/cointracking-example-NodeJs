@@ -4,9 +4,7 @@ var moment = require('moment');
 var FormData = require('form-data');
 var http_build_query = require('qhttp/http_build_query');
 
-const key = '123456789';  // YOUR API KEY
-const secret = 'abcdefghij'; // YOUR API SECRET
-
+const config = require('./config.json');
 const url = "https://cointracking.info/api/v1/";
 
 async function coinTracking(method, params) {
@@ -15,11 +13,11 @@ async function coinTracking(method, params) {
 
     var post_data = http_build_query(params, {leave_brackets: false});
 
-    var hash = crypto.createHmac('sha512', secret);
+    var hash = crypto.createHmac('sha512', config.secret);
     hash.update(post_data);
     var sign = hash.digest('hex');
 
-    var headers =  { 'Key': key, 'Sign': sign};
+    var headers =  { 'Key': config.key, 'Sign': sign};
 
     var form = new FormData();
     for(var paramKey in params) {
