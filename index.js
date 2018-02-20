@@ -57,3 +57,17 @@ async function getBalance() {
     var res = await coinTracking('getBalance', params);
     console.log(JSON.stringify(res, null, 4));
 }
+
+async function getHistoricalSummary() {
+    var params={};    
+
+    // optional parameter
+    /*
+    params.btc=1;               // show as btc
+    params.start=0;
+    params.end=1518029160;
+    */
+
+    var res = await coinTracking('getHistoricalSummary', params);
+    console.log(JSON.stringify(res, null, 4));
+}
