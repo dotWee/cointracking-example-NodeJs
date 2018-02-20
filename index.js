@@ -49,4 +49,11 @@ async function getTrades() {
     console.log(JSON.stringify(res, null, 4));
 }
 
-getTrades();
+async function getBalance() {
+
+    // no support for paramter
+    var params={};
+
+    var res = await coinTracking('getBalance', params);
+    console.log(JSON.stringify(res, null, 4));
+}
