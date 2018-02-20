@@ -36,7 +36,14 @@ async function coinTracking(method, params) {
 
 async function getTrades() {
     var params={};
+    
+    // optional parameter
+    /*
     params.limit=200;
+    params.order='DESC';
+    params.start=1518029160;
+    params.end=1518029160;
+    */
 
     var res = await coinTracking('getTrades', params);
     console.log(res);
