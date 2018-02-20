@@ -3,6 +3,7 @@ var fetch = require('node-fetch');
 var moment = require('moment');
 var FormData = require('form-data');
 var http_build_query = require('qhttp/http_build_query');
+var jsonfile = require('jsonfile');
 
 const config = require('./config.json');
 const url = "https://cointracking.info/api/v1/";
@@ -34,6 +35,13 @@ async function coinTracking(method, params) {
     return json;
 }
 
+function writeResponse(res) {
+    var file = "./" + res.method + ".json";
+    jsonfile.writeFile(file, res, function (err) {
+        console.error(err)
+    });
+}
+
 async function getTrades() {
     var params={};
     
@@ -46,7 +54,7 @@ async function getTrades() {
     */
 
     var res = await coinTracking('getTrades', params);
-    console.log(JSON.stringify(res, null, 4));
+    writeResponse(res);
 }
 
 async function getBalance() {
@@ -55,7 +63,7 @@ async function getBalance() {
     var params={};
 
     var res = await coinTracking('getBalance', params);
-    console.log(JSON.stringify(res, null, 4));
+    writeResponse(res);
 }
 
 async function getHistoricalSummary() {
@@ -69,7 +77,7 @@ async function getHistoricalSummary() {
     */
 
     var res = await coinTracking('getHistoricalSummary', params);
-    console.log(JSON.stringify(res, null, 4));
+    writeResponse(res);
 }
 
 async function getHistoricalCurrency() {
@@ -83,7 +91,7 @@ async function getHistoricalCurrency() {
     */
 
     var res = await coinTracking('getHistoricalCurrency', params);
-    console.log(JSON.stringify(res, null, 4));
+    writeResponse(res);
 }
 
 async function getGroupedBalance() {
@@ -97,7 +105,7 @@ async function getGroupedBalance() {
     */
 
     var res = await coinTracking('getGroupedBalance', params);
-    console.log(JSON.stringify(res, null, 4));
+    writeResponse(res);
 }
 
 async function getGains() {
@@ -113,5 +121,13 @@ async function getGains() {
     */
 
     var res = await coinTracking('getGains', params);
-    console.log(JSON.stringify(res, null, 4));
+    writeResponse(res);
 }
+
+// uncomment to execute
+getTrades();
+//getBalance();
+//getHistoricalSummary();
+//getHistoricalCurrency();
+//getGroupedBalance();
+//getGains();

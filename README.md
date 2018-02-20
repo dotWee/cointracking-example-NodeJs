@@ -8,3 +8,5 @@ Rename `config.example.json` to `config.json` and replace with own key and secre
 npm install
 npm start
 ```
+
+Responses will be written to `[functionName].json`.
